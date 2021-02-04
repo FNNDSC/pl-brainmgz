@@ -1,4 +1,4 @@
-#!/usr/bin/env python                                            
+#!/usr/bin/env python
 #
 # brainmgz fs ChRIS plugin app
 #
@@ -24,35 +24,26 @@ import  glob
 
 Gstr_title = """
 
-Generate a title from 
-http://patorjk.com/software/taag/#p=display&f=Doom&t=brainmgz
-
- _               _                           
-| |             (_)                          
+ _               _
+| |             (_)
 | |__  _ __ __ _ _ _ __  _ __ ___   __ _ ____
 | '_ \| '__/ _` | | '_ \| '_ ` _ \ / _` |_  /
-| |_) | | | (_| | | | | | | | | | | (_| |/ / 
+| |_) | | | (_| | | | | | | | | | | (_| |/ /
 |_.__/|_|  \__,_|_|_| |_|_| |_| |_|\__, /___|
-                                    __/ |    
-                                   |___/     
+                                    __/ |
+                                   |___/
 
 """
 
 Gstr_synopsis = """
 
-(Edit this in-line help for app specifics. At a minimum, the 
-flags below are supported -- in the case of DS apps, both
-positional arguments <inputDir> and <outputDir>; for FS apps
-only <outputDir> -- and similarly for <in> <out> directories
-where necessary.)
-
     NAME
 
-       brainmgz.py 
+       brainmgz
 
     SYNOPSIS
 
-        python brainmgz.py                                         \\
+        [python] brainmgz                                               \\
             [-h] [--help]                                               \\
             [--json]                                                    \\
             [--man]                                                     \\
@@ -60,44 +51,47 @@ where necessary.)
             [--savejson <DIR>]                                          \\
             [-v <level>] [--verbosity <level>]                          \\
             [--version]                                                 \\
-            <inputDir>                                                  \\
-            <outputDir> 
+            <outputDir>
 
     BRIEF EXAMPLE
 
         * Bare bones execution
 
-            docker run --rm -u $(id -u)                             \
-                -v $(pwd)/in:/incoming -v $(pwd)/out:/outgoing      \
-                fnndsc/pl-brainmgz brainmgz                        \
-                /incoming /outgoing
+            docker run --rm -u $(id -u)                                 \\
+                -v $(pwd)/out:/outgoing                                 \\
+                fnndsc/pl-brainmgz brainmgz                             \\
+                /outgoing
 
     DESCRIPTION
 
-        `brainmgz.py` ...
+        ``brainmgz.py`` is a ChRIS FS plugin that simply delivers a payload
+        of 25 FreeSurfer ``brain.mgz`` files to its ``/outgoing`` directory.
+
+        The primary purpose of this plugin is simply a convenient means
+        to create the root node of a ChRIS feed tree.
 
     ARGS
 
         [-h] [--help]
         If specified, show help message and exit.
-        
+
         [--json]
         If specified, show json representation of app and exit.
-        
+
         [--man]
         If specified, print (this) man page and exit.
 
         [--meta]
         If specified, print plugin meta data and exit.
-        
-        [--savejson <DIR>] 
-        If specified, save json representation file to DIR and exit. 
-        
+
+        [--savejson <DIR>]
+        If specified, save json representation file to DIR and exit.
+
         [-v <level>] [--verbosity <level>]
         Verbosity level for app. Not used currently.
-        
+
         [--version]
-        If specified, print version number and exit. 
+        If specified, print version number and exit.
 """
 
 
@@ -149,7 +143,7 @@ class Brainmgz(ChrisApp):
         """
         print(Gstr_title)
         print('Version: %s' % self.get_version())
-        
+
         if len(options.dir):
             print("Copying tree %s..." % options.dir)
             copy_tree(options.dir, options.outputdir)

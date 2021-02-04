@@ -13,13 +13,15 @@ pl-brainmgz
 Abstract
 --------
 
-An FS app to load FreeSurfer brain.mgz files
+A ChRIS FS app to load FreeSurfer ``brain.mgz`` files.
 
 
 Description
 -----------
 
-``brainmgz`` is a ChRIS-based application that...
+``brainmgz.py`` is a ChRIS FS plugin that simply delivers a payload of 25 FreeSurfer ``brain.mgz`` files to its ``/outgoing`` directory.
+
+The primary purpose of this plugin is simply a convenient means to create the root node of a ChRIS feed tree.
 
 
 Usage
@@ -27,12 +29,11 @@ Usage
 
 .. code::
 
-    python brainmgz.py
-        [-h|--help]
-        [--json] [--man] [--meta]
-        [--savejson <DIR>]
-        [-v|--verbosity <level>]
-        [--version]
+    [python] brainmgz                               \
+        [-h|--help]                                 \
+        [--json] [--man] [--meta]                   \
+        [--savejson <DIR>]                          \
+        [-v|--verbosity <level>]                    \
         <inputDir> <outputDir>
 
 
@@ -43,24 +44,24 @@ Arguments
 
     [-h] [--help]
     If specified, show help message and exit.
-    
+
     [--json]
     If specified, show json representation of app and exit.
-    
+
     [--man]
     If specified, print (this) man page and exit.
 
     [--meta]
     If specified, print plugin meta data and exit.
-    
-    [--savejson <DIR>] 
-    If specified, save json representation file to DIR and exit. 
-    
+
+    [--savejson <DIR>]
+    If specified, save json representation file to DIR and exit.
+
     [-v <level>] [--verbosity <level>]
     Verbosity level for app. Not used currently.
-    
+
     [--version]
-    If specified, print version number and exit. 
+    If specified, print version number and exit.
 
 
 Getting inline help is:
@@ -72,15 +73,15 @@ Getting inline help is:
 Run
 ~~~
 
-You need you need to specify input and output directories using the `-v` flag to `docker run`.
-
+If running from the CLI, simply create an output directory and volume map that into the container.
 
 .. code:: bash
 
-    docker run --rm -u $(id -u)                             \
-        -v $(pwd)/in:/incoming -v $(pwd)/out:/outgoing      \
-        fnndsc/pl-brainmgz brainmgz                        \
-        /incoming /outgoing
+    mkdir out && chmod 777 out
+    docker run --rm                                         \
+        -v $(pwd)/out:/outgoing                             \
+        fnndsc/pl-brainmgz brainmgz                         \
+        /outgoing
 
 
 Development
@@ -92,10 +93,6 @@ Build the Docker container:
 
     docker build -t local/pl-brainmgz .
 
-Examples
---------
-
-Put some examples here!
 
 
 .. image:: https://raw.githubusercontent.com/FNNDSC/cookiecutter-chrisapp/master/doc/assets/badge/light.png
