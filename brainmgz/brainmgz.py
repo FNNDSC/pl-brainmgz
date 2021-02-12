@@ -2,7 +2,7 @@
 #
 # brainmgz fs ChRIS plugin app
 #
-# (c) 2016-2020 Fetal-Neonatal Neuroimaging & Developmental Science Center
+# (c) 2016-2021 Fetal-Neonatal Neuroimaging & Developmental Science Center
 #                   Boston Children's Hospital
 #
 #              http://childrenshospital.org/FNNDSC/
