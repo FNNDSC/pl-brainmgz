@@ -1,3 +1,17 @@
+.. code:: console
+
+         _               _
+        | |             (_)
+        | |__  _ __ __ _ _ _ __  _ __ ___   __ _ ____
+        | '_ \| '__/ _` | | '_ \| '_ ` _ \ / _` |_  /
+        | |_) | | | (_| | | | | | | | | | | (_| |/ /
+        |_.__/|_|  \__,_|_|_| |_|_| |_| |_|\__, /___|
+                                            __/ |
+                                           |___/
+
+        
+
+
 pl-brainmgz
 ================================
 
@@ -13,13 +27,13 @@ pl-brainmgz
 Abstract
 --------
 
-A ChRIS FS app to load FreeSurfer ``brain.mgz`` files.
+A ChRIS FS app to deliver embedded FreeSurfer ``brain.mgz`` and ``aparc.*``  files to its output directory. These files are made available as part of the Human Connectome Project.
 
 
 Description
 -----------
 
-``brainmgz.py`` is a ChRIS FS plugin that simply delivers a payload of 25 FreeSurfer ``brain.mgz`` files to its ``/outgoing`` directory.
+``brainmgz`` is a ChRIS FS plugin that simply delivers a payload of 25 FreeSurfer ``brain.mgz`` and ``aparc.*`` segmented volume files to its ``/outgoing`` directory.
 
 The primary purpose of this plugin is simply a convenient means to create the root node of a ChRIS feed tree.
 
