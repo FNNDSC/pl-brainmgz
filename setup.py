@@ -13,7 +13,7 @@ setup(
     author_email     = 'sandip.samal@childrens.harvard.edu',
     url              = 'http://wiki',
     packages         = ['brainmgz'],
-    install_requires = ['chrisapp~=2.0.0'],
+    install_requires = ['chrisapp'],
     test_suite       = 'nose.collector',
     tests_require    = ['nose'],
     license          = 'MIT',
