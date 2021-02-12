@@ -21,13 +21,15 @@
 #   docker run -ti -e HOST_IP=$(ip route | grep -v docker | awk '{if(NF==11) print $9}') --entrypoint /bin/bash local/pl-brainmgz
 #
 
-FROM fnndsc/ubuntu-python3:latest
-MAINTAINER fnndsc "dev@babymri.org"
+FROM python:3.9.1-alpine
+LABEL maintainer="FNNDSC <dev@babyMRI.org>"
 
 WORKDIR /usr/local/src
-COPY . .
-RUN pip --disable-pip-version-check install -r requirements.txt \
-    && pip --disable-pip-version-check install .
 
-WORKDIR /usr/local/bin
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY . .
+RUN pip install .
+
 CMD ["brainmgz", "--help"]
