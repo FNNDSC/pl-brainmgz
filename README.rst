@@ -15,11 +15,14 @@
 pl-brainmgz
 ================================
 
-.. image:: https://travis-ci.org/FNNDSC/brainmgz.svg?branch=master
-    :target: https://travis-ci.org/FNNDSC/brainmgz
+.. image:: https://img.shields.io/docker/v/fnndsc/pl-brainmgz?sort=semver
+    :target: https://hub.docker.com/r/fnndsc/pl-brainmgz
 
-.. image:: https://img.shields.io/badge/python-3.8%2B-blue.svg
-    :target: https://github.com/FNNDSC/pl-brainmgz/blob/master/setup.py
+.. image:: https://img.shields.io/github/license/fnndsc/pl-brainmgz
+    :target: https://github.com/FNNDSC/pl-brainmgz/blob/master/LICENSE
+
+.. image:: https://github.com/FNNDSC/pl-brainmgz/workflows/ci/badge.svg
+    :target: https://github.com/FNNDSC/pl-brainmgz/actions
 
 .. contents:: Table of Contents
 
