@@ -6,7 +6,7 @@ with open(path.join(path.dirname(path.abspath(__file__)), 'README.rst')) as f:
 
 setup(
     name             = 'brainmgz',
-    version          = '2.0.2',
+    version          = '2.0.3',
     description      = 'An FS app with a payload of 25 FreeSurfer brain.mgz files',
     long_description = readme,
     author           = 'Sandip Samal',
